@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os 
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,9 +76,21 @@ WSGI_APPLICATION = 'pest_control_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('pfeiffer_pest_db'),
+        'USER': os.getenv('postgres'),
+        'PASSWORD': os.getenv('Bugman'),
+        'HOST': os.getenv('localhost'),
+        'PORT': os.getenv('5432'),
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pfeiffer_pest_db',
+        'USER': 'postgres',
+        'PASSWORD': 'Bugman',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
