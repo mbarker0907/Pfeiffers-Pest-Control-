@@ -79,18 +79,13 @@ DATABASES = {
 
       'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('pfeiffer_pest_db'),
-        'USER': os.getenv('postgres'),
-        'PASSWORD': os.getenv('Bugman'),
-        'HOST': os.getenv('localhost'),
-        'PORT': os.getenv('5432'),
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pfeiffer_pest_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Bugman',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'pfeiffer_pest_db'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'Bugman'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
+
+     
     }
 }
 
